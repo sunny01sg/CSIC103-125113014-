@@ -1,24 +1,26 @@
 #include <stdio.h>
-
 int main() {
-    float n1, n2, n3;
-
-    printf("Enter three different numbers: ");
-    scanf("%f %f %f", &n1, &n2, &n3);
-
-    if (n1 >= n2) {
-        if (n1 >= n3) {
-            printf("%.2f is the largest number.\n", n1);
+    double a, b, c;
+    printf("Enter three numbers: ");
+    if (scanf("%lf %lf %lf", &a, &b, &c) != 3) {
+        fprintf(stderr, "Invalid input\n");
+        return 1;
+    }
+    double largest;
+    if (a >= b) {
+        if (a >= c) {
+            largest = a;
         } else {
-            printf("%.2f is the largest number.\n", n3);
+            largest = c;
         }
     } else {
-        if (n2 >= n3) {
-            printf("%.2f is the largest number.\n", n2);
+        if (b >= c) {
+            largest = b;
         } else {
-            printf("%.2f is the largest number.\n", n3);
+            largest = c;
         }
     }
 
+    printf("Largest: %g\n", largest);
     return 0;
 }
